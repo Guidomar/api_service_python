@@ -116,21 +116,8 @@ def registro():
 @app.route("/comparativa")
 def comparativa():
     try:
-        # Alumno:
-        # Implementar una función en persona.py llamada "dashboard"
-        # Lo que desea es realizar un gráfico de linea con las edades
-        # de todas las personas en la base de datos
-
-        # Para eso, su función "dashboard" debe devolver dos valores:
-        # - El primer valor que debe devolver es "x", que debe ser
-        # los Ids de todas las personas en su base de datos
-        # - El segundo valor que debe devolver es "y", que deben ser
-        # todas las edades respectivas a los Ids que se encuentran en "x"
-
-        # Descomentar luego de haber implementado su función en persona.py:
-
-        id,age = persona.dashboard()
-        image_html = utils.graficar(id, age)
+        ids,ages = persona.dashboard()
+        image_html = utils.graficar(ids, ages)
         return Response(image_html.getvalue(), mimetype='image/png')
 
         return "Alumno --> Realice la implementacion"

@@ -53,19 +53,12 @@ def report(limit=0, offset=0):
 
     return json_result_list
 
-def dashboard(id,age):
+def dashboard():
        
-    query = db.session.query(Persona).filter(Persona.id == id).order_by(Persona.age.desc())
-    query = query.limit(250)
-    query_results = query.all()
-
-    if query_results is None or len(query_results) == 0:
-            return []
-    
-    id = [x.id for x in reversed(query_results)]
-    age = [x.age for x in reversed(query_results)]
- 
-    return id, age
+    ids= db.session.query(Persona.id).all()
+    ages=db.session.query(Persona.age).all()
+     
+    return ids,ages
 
 
 if __name__ == "__main__":
